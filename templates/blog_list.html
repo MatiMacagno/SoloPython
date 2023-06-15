@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blog</title>
+    </head>
+    <body>
+        
+        <a class="text-blue-500 font-bold" href="{% url 'blog:create' %}">Create post</a> <br>
+        
+        {% for post in posts %}
+            <a href="{% url 'blog:detail' post.id %}">{{ post.title }}</a>
+            <a href="{% url 'blog:update' post.id %}">Update</a>
+            <a href="{% url 'blog:delete' post.id %}">Delete</a> <br>
+        {% endfor %}
+    </body>
+    </html>
+
+{% endblock content %}
+
